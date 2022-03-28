@@ -77,9 +77,10 @@ class ControleMenu:
             self.vue.effacer_ecran()
             self.controle.recuperer_information_tournoi()
         elif option == MODIFIER_TOURNOI:
-            pass
+            self.vue.effacer_ecran()
+            self.controle.modifier_tournoi()
         elif option == LANCER_TOURNOI:
-            pass
+            self.controle.lancer_tournoi()
         elif option == RETOUR_MENU_GLOBAL_1:
             self.choix_menu_global()
 
@@ -89,7 +90,8 @@ class ControleMenu:
             self.vue.effacer_ecran()
             self.controle.recuperer_information_joueur()
         elif option == MODIFIER_JOUEUR:
-            pass
+            self.vue.effacer_ecran()
+            self.controle.modifier_joueur()
         elif option == RETOUR_MENU_GLOBAL_2:
             self.choix_menu_global()
 
@@ -105,7 +107,7 @@ class ControleMenu:
             self.choix_menu_rapport_liste_joueurs()
         elif option == AFFICHER_TOURNOIS:
             self.vue.effacer_ecran()
-            self.vue.afficher_tournoi(self.controle.recuperer_tournois_trier_tableau(NOM))
+            self.vue.afficher_tournoi_tableau(self.controle.recuperer_tournoi_tableau(NOM))
             self.vue.pause_ecran()
         elif option == AFFICHER_TOURS_TOURNOI:
             pass
@@ -118,11 +120,11 @@ class ControleMenu:
         option = self.vue.entrer_choix_menu()
         if option == AFFICHER_JOUEURS_ALPHA:
             self.vue.effacer_ecran()
-            self.vue.afficher_joueurs_trier(self.controle.recuperer_joueurs_trier_tableau(NOM))
+            self.vue.afficher_joueur_tableau(self.controle.recuperer_joueur_tableau(NOM))
             self.vue.pause_ecran()
         elif option == AFFICHER_JOUEURS_CLASSEMENT:
             self.vue.effacer_ecran()
-            self.vue.afficher_joueurs_trier(self.controle.recuperer_joueurs_trier_tableau(CLASSEMENT))
+            self.vue.afficher_joueur_tableau(self.controle.recuperer_joueur_tableau(CLASSEMENT, reverse=True))
             self.vue.pause_ecran()
         elif option == RETOUR_MENU_RAPPORTS_1:
             self.vue.effacer_ecran()

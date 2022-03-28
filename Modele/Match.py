@@ -5,6 +5,7 @@ from Modele import Ronde
 GAGNER_MATCH = 1
 PERDU_MATCH = 0
 NUL_MATCH = 0.5
+MATCH = 'Match'
 # -----------------------------------------définition de la classe---------------------------------
 
 
@@ -15,4 +16,22 @@ class Match:
         self.id_match = 0
         self.resultat_match = [GAGNER_MATCH, PERDU_MATCH, NUL_MATCH]
         self.joueur_resultat = 0
+        self.arbre_match = Tree
+        self.arbre_resultat_match = Tree
+
+    def creer_arbre_match(self, ronde, id_match) -> [Tree]:
+        self.arbre_match = ronde.add(f'{MATCH}{id_match + 1}')
+        return self.arbre_match
+
+    def utiliser_arbre_match(self) -> [Tree]:
+        return self.arbre_match
+
+    def cree_arbre_resultat_match(self, ronde, id_match):
+        self.arbre_resultat_match = Tree(f'\n{MATCH}{id_match + 1}')
+        self.arbre_resultat_match.add(f'{ronde[id_match][0][1]}')
+        self.arbre_resultat_match.add(f'{ronde[id_match][1][1]}')
+        return self.arbre_resultat_match
+
+    def utiliser_arbre_resultat_match(self):
+        return self.arbre_resultat_match
 

@@ -9,7 +9,7 @@ MODIFICATION_ANNULE = '\nModification annulé'
 JOUEUR_REMPORTE_MATCH = "Quel joueur remporte le match: "
 JOUEUR_NOM = "Nom de famille du joueur: "
 JOUEUR_PRENOM = "Prenom du joueur: "
-JOUEUR_SEXE = "[0] = Masculin || [1] = Féminin: "
+JOUEUR_SEXE = "|0| = Masculin || [1] = Féminin: "
 JOUEUR_DATE_NAISSANCE = "Date de naissance JJ-MM-AAAA: "
 JOUEUR_CLASSEMENT = "Classement du joueur: "
 TOURNOI_NOM = "Nom du Tournoi:"
@@ -20,9 +20,10 @@ TOURNOI_DESCRIPTION = "Description du Tournoi :"
 CHOISIR_NOMBRES_JOUEURS = "Choisir un nombre de joueurs maximum pour le tournoi: "
 CHOISIR_NOMBRES_RONDES = "Choisir le nombre de ronde maximum pour le tournoi: "
 ADMIN_CHOIX_ID = "Choisir un ID: "
-ADMIN_VALIDATION = "Voulez vous modifier les informations [o] ou [n]: "
+ADMIN_VALIDATION = "Voulez vous modifier les informations [blue]o[/blue] ou [red]n[/red]: "
 DATE_TOURNOI = 'Date du tournoi'
 JOUEUR_GAGNANT = "\n[1] Joueur 1 || [2] Joueur 2 || [3] Match Nul: "
+AJOUTER_JOUEURS_TOURNOI = "\nAjouter 8 ID de joueurs au tournoi: "
 
 # -----------------------------------------définition de la classe---------------------------------
 
@@ -79,29 +80,32 @@ class Vue(Console):
     def afficher_joueur_remporte_match(self):
         self.print(Panel.fit(JOUEUR_REMPORTE_MATCH))
 
+    def afficher_ajouter_joueurs_tournoi(self):
+        self.print(Panel.fit(AJOUTER_JOUEURS_TOURNOI))
+
 # ----------------------------------Tableau--------------------------------------------------
-    def afficher_joueurs_trier(self, tableau):
+    def afficher_joueur_tableau(self, tableau):
         """Affiche les joueurs enregistrés par classement"""
         return self.vue.print(tableau)
 
-    def afficher_tournoi(self, tableau):
+    def afficher_tournoi_tableau(self, tableau):
         """Affiche les informations des tournois enregistrés"""
         return self.vue.print(tableau)
 
-    def afficher_resultat_ronde_joueurs(self, tableau):
+    def afficher_ronde_tableau(self, tableau):
         """Affiche le resultat des rondes"""
         return self.vue.print(tableau)
 
-    def afficher_resultat_match_tableau(self, tableau):
+    def afficher_match_tableau(self, tableau):
         """Affiche le resultat d'un match sous forme d'un tableau"""
         return self.vue.print(tableau)
 
 # ----------------------------------Arbre--------------------------------------------------
-    def afficher_ronde(self, arbre):
+    def afficher_ronde_arbre(self, arbre):
         """Affiche une ronde"""
         return self.vue.print(arbre)
 
-    def afficher_resultat_match_arbre(self, arbre):
+    def afficher_match_arbre(self, arbre):
         """Affiche le resultat d'un match sous forme d'un arbre"""
         return self.vue.print(arbre)
 
@@ -164,7 +168,7 @@ class Vue(Console):
 
     def entrer_validation(self) -> [int]:
         """Entrer une validation"""
-        validation = self.entrer_int.ask(ADMIN_VALIDATION)
+        validation = self.entrer_str.ask(ADMIN_VALIDATION)
         if validation == "n":
             return False
         return True

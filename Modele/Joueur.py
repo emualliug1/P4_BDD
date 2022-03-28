@@ -32,7 +32,7 @@ class Joueur:
         self.dict_joueurs = {}
         self.dict_id_joueur = 0
         self.id_joueur = 0
-        self.table_joueurs = Table
+        self.tableau_joueurs = Table
 
     def enregistrer_joueur(self, numero) -> [dict]:
         """Enregistrement d'un joueur"""
@@ -52,22 +52,22 @@ class Joueur:
         return self.dict_joueurs
 
     def creer_tableau_joueur(self) -> [Table]:
-        self.table_joueurs = Table(box=box.HORIZONTALS,
-                                   show_header=True,
-                                   header_style=BOLD,
-                                   title=TITRE_TABLEAU_JOUEURS)
+        self.tableau_joueurs = Table(box=box.HORIZONTALS,
+                                     show_header=True,
+                                     header_style=BOLD,
+                                     title=TITRE_TABLEAU_JOUEURS)
 
-        self.table_joueurs.add_column(ID)
-        self.table_joueurs.add_column(NOM)
-        self.table_joueurs.add_column(PRENOM)
-        self.table_joueurs.add_column(DATE_NAISSANCE)
-        self.table_joueurs.add_column(SEXE)
-        self.table_joueurs.add_column(CLASSEMENT)
+        self.tableau_joueurs.add_column(ID)
+        self.tableau_joueurs.add_column(NOM)
+        self.tableau_joueurs.add_column(PRENOM)
+        self.tableau_joueurs.add_column(DATE_NAISSANCE)
+        self.tableau_joueurs.add_column(SEXE)
+        self.tableau_joueurs.add_column(CLASSEMENT)
 
-        return self.table_joueurs
+        return self.tableau_joueurs
 
     def utiliser_tableau_joueur(self):
-        return self.table_joueurs
+        return self.tableau_joueurs
 
     def ajouter_joueur_dict(self, id_joueur, nom, prenom, date_naissance, sexe, classement) -> [dict]:
         """Créer un joueur fictif comme exemple"""
