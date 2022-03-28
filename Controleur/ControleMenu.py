@@ -1,6 +1,12 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
 
-# -----------------------------------------définition des constantes-------------------------------
-# Constante de trie
+# Définition des constantes
+
+# Constante trie
 NOM = 'Nom'
 CLASSEMENT = 'Classement'
 
@@ -39,7 +45,7 @@ AFFICHER_JOUEURS_TOURNOI_ALPHA = 1
 AFFICHER_JOUEURS_TOURNOI_CLASSEMENT = 2
 RETOUR_MENU_RAPPORTS_2 = 3
 
-# -----------------------------------------définition de la classe---------------------------------
+# Définition de la classe
 
 
 class ControleMenu:
@@ -70,14 +76,12 @@ class ControleMenu:
         elif option == QUITTER:
             quit()
 
-
     def choix_menu_tournoi(self):
         option = self.vue.entrer_choix_menu()
+
         if option == AJOUTER_TOURNOI:
-            self.vue.effacer_ecran()
             self.controle.recuperer_information_tournoi()
         elif option == MODIFIER_TOURNOI:
-            self.vue.effacer_ecran()
             self.controle.modifier_tournoi()
         elif option == LANCER_TOURNOI:
             self.controle.lancer_tournoi()
@@ -86,17 +90,17 @@ class ControleMenu:
 
     def choix_menu_joueur(self):
         option = self.vue.entrer_choix_menu()
+
         if option == AJOUTER_JOUEUR:
-            self.vue.effacer_ecran()
             self.controle.recuperer_information_joueur()
         elif option == MODIFIER_JOUEUR:
-            self.vue.effacer_ecran()
             self.controle.modifier_joueur()
         elif option == RETOUR_MENU_GLOBAL_2:
             self.choix_menu_global()
 
     def choix_menu_rapport(self):
         option = self.vue.entrer_choix_menu()
+
         if option == AFFICHER_JOUEURS:
             self.vue.effacer_ecran()
             self.vue.afficher_menu_rapport_liste_joueurs()
@@ -106,9 +110,7 @@ class ControleMenu:
             self.vue.afficher_menu_rapport_liste_joueurs_tournoi()
             self.choix_menu_rapport_liste_joueurs()
         elif option == AFFICHER_TOURNOIS:
-            self.vue.effacer_ecran()
             self.vue.afficher_tournoi_tableau(self.controle.recuperer_tournoi_tableau(NOM))
-            self.vue.pause_ecran()
         elif option == AFFICHER_TOURS_TOURNOI:
             pass
         elif option == AFFICHER_MATCH_TOURNOI:
@@ -119,13 +121,9 @@ class ControleMenu:
     def choix_menu_rapport_liste_joueurs(self):
         option = self.vue.entrer_choix_menu()
         if option == AFFICHER_JOUEURS_ALPHA:
-            self.vue.effacer_ecran()
             self.vue.afficher_joueur_tableau(self.controle.recuperer_joueur_tableau(NOM))
-            self.vue.pause_ecran()
         elif option == AFFICHER_JOUEURS_CLASSEMENT:
-            self.vue.effacer_ecran()
             self.vue.afficher_joueur_tableau(self.controle.recuperer_joueur_tableau(CLASSEMENT, reverse=True))
-            self.vue.pause_ecran()
         elif option == RETOUR_MENU_RAPPORTS_1:
             self.vue.effacer_ecran()
             self.vue.afficher_menu_rapport()

@@ -1,12 +1,19 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from rich.tree import Tree
-from Modele import Ronde
+#############################################
 
-# -----------------------------------------définition des constantes-------------------------------
+# Définition des constantes
 GAGNER_MATCH = 1
 PERDU_MATCH = 0
 NUL_MATCH = 0.5
 MATCH = 'Match'
-# -----------------------------------------définition de la classe---------------------------------
+
+# Définition de la classe
 
 
 class Match:

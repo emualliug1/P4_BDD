@@ -1,9 +1,18 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.prompt import IntPrompt
 from rich.panel import Panel
 import os
-# -----------------------------------------définition des constantes-------------------------------
+#############################################
+
+# Définition des constantes
+
 CONTINUER = '\nAppuyer sur entrer pour continuer'
 MODIFICATION_ANNULE = '\nModification annulé'
 JOUEUR_REMPORTE_MATCH = "Quel joueur remporte le match: "
@@ -25,7 +34,8 @@ DATE_TOURNOI = 'Date du tournoi'
 JOUEUR_GAGNANT = "\n[1] Joueur 1 || [2] Joueur 2 || [3] Match Nul: "
 AJOUTER_JOUEURS_TOURNOI = "\nAjouter 8 ID de joueurs au tournoi: "
 
-# -----------------------------------------définition de la classe---------------------------------
+# Définition de la classe
+
 
 class Vue(Console):
     """Affiche les informations du tournoi dans la console"""
@@ -46,7 +56,8 @@ class Vue(Console):
         self.afficher_continuer()
         input()
 
-# ----------------------------------gérer menu --------------------------------------------------
+# Gérer Menu
+
     def afficher_menu_global(self):
         return self.vue.menu_global()
 
@@ -70,7 +81,8 @@ class Vue(Console):
         option = self.entrer_int.ask()
         return option
 
-# ----------------------------------print--------------------------------------------------
+# Print
+
     def afficher_continuer(self):
         self.print(Panel.fit(CONTINUER))
 
@@ -83,33 +95,46 @@ class Vue(Console):
     def afficher_ajouter_joueurs_tournoi(self):
         self.print(Panel.fit(AJOUTER_JOUEURS_TOURNOI))
 
-# ----------------------------------Tableau--------------------------------------------------
+# Tableau
+
     def afficher_joueur_tableau(self, tableau):
         """Affiche les joueurs enregistrés par classement"""
-        return self.vue.print(tableau)
+        self.effacer_ecran()
+        self.print(tableau)
+        self.pause_ecran()
 
     def afficher_tournoi_tableau(self, tableau):
         """Affiche les informations des tournois enregistrés"""
-        return self.vue.print(tableau)
+        self.effacer_ecran()
+        self.print(tableau)
+        self.pause_ecran()
 
     def afficher_ronde_tableau(self, tableau):
         """Affiche le resultat des rondes"""
-        return self.vue.print(tableau)
+        self.effacer_ecran()
+        self.print(tableau)
+        self.pause_ecran()
 
     def afficher_match_tableau(self, tableau):
         """Affiche le resultat d'un match sous forme d'un tableau"""
-        return self.vue.print(tableau)
+        self.effacer_ecran()
+        self.vue.print(tableau)
+        self.pause_ecran()
 
-# ----------------------------------Arbre--------------------------------------------------
+# Arbre
+
     def afficher_ronde_arbre(self, arbre):
         """Affiche une ronde"""
-        return self.vue.print(arbre)
+        self.effacer_ecran()
+        self.print(arbre)
+        self.pause_ecran()
 
     def afficher_match_arbre(self, arbre):
         """Affiche le resultat d'un match sous forme d'un arbre"""
-        return self.vue.print(arbre)
+        self.effacer_ecran()
+        self.print(arbre)
 
-# --------------------------------------input----------------------------------------------------
+# Input
 
     def entrer_nom_joueur(self) -> [str]:
         """Entrer le nom d'un joueur"""
@@ -187,5 +212,3 @@ class Vue(Console):
         """Entrer le nombre de rondes maximum d'un tournoi"""
         rondes_max = self.entrer_int.ask(CHOISIR_NOMBRES_RONDES)
         return rondes_max
-
-

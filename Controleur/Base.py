@@ -1,8 +1,15 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from Modele import Joueur
 from Modele import Tournoi
 from operator import itemgetter
+#############################################
 
-# -----------------------------------------définition des constantes-------------------------------
+# Définition des constantes
 ODRE_TRI = 1
 NOM = 'Nom'
 PRENOM = 'Prenom'
@@ -15,7 +22,8 @@ DATE_TOURNOI = 'Date du tournoi'
 DESCRIPTION = 'Description'
 TRIE_CLASSEMENT = 2
 TRIE_VICTOIRE = 3
-# -----------------------------------------définition de la classe---------------------------------
+
+# Définition de la classe
 
 
 class Controleur:
@@ -27,7 +35,6 @@ class Controleur:
         self.ronde = ronde
         self.match = match
 
-
     @staticmethod
     def trier_dict(dictionnaire, trie, reverse=False):
         dict_trier_classement = dict(sorted(dictionnaire.items(), reverse=reverse,
@@ -35,6 +42,7 @@ class Controleur:
         return dict_trier_classement
 
     def recuperer_information_joueur(self):
+        self.vue.effacer_ecran()
         nom = self.vue.entrer_nom_joueur()
         prenom = self.vue.entrer_prenom_joueur()
         date_naissance = self.vue.entrer_date_naissance_joueur()
@@ -44,6 +52,7 @@ class Controleur:
         return joueur
 
     def recuperer_information_tournoi(self):
+        self.vue.effacer_ecran()
         nom = self.vue.entrer_nom_tournoi()
         lieu = self.vue.entrer_lieu_tournoi()
         date_tournoi = self.vue.entrer_date_tournoi()
@@ -54,6 +63,7 @@ class Controleur:
 
     def modifier_joueur(self):
         """"Modification d'un joueur"""
+        self.vue.effacer_ecran()
         self.vue.afficher_joueur_tableau(self.recuperer_joueur_tableau(NOM))
         joueur_id = self.vue.entrer_id()
         validation = self.vue.entrer_validation()
@@ -66,6 +76,7 @@ class Controleur:
 
     def modifier_tournoi(self):
         """"Modifier un tournoi enregistré"""
+        self.vue.effacer_ecran()
         self.vue.afficher_tournoi_tableau(self.recuperer_tournoi_tableau(NOM))
         tournoi_id = self.vue.entrer_id()
         validation = self.vue.entrer_validation()
@@ -76,29 +87,27 @@ class Controleur:
             self.vue.afficher_modification_annule()
             self.vue.pause_ecran()
 
-
     def recuperer_joueur_tableau(self, trie, reverse=False):
         self.joueur.creer_tableau_joueur()
         for id_joueurs in self.trier_dict(self.joueur.dict_joueurs, trie, reverse).keys():
             self.joueur.utiliser_tableau_joueur().add_row(str(id_joueurs),
-                                                       self.joueur.dict_joueurs[id_joueurs][NOM],
-                                                       self.joueur.dict_joueurs[id_joueurs][PRENOM],
-                                                       self.joueur.dict_joueurs[id_joueurs][DATE_NAISSANCE],
-                                                       self.joueur.dict_joueurs[id_joueurs][SEXE],
-                                                       str(self.joueur.dict_joueurs[id_joueurs][CLASSEMENT]))
+                                                          self.joueur.dict_joueurs[id_joueurs][NOM],
+                                                          self.joueur.dict_joueurs[id_joueurs][PRENOM],
+                                                          self.joueur.dict_joueurs[id_joueurs][DATE_NAISSANCE],
+                                                          self.joueur.dict_joueurs[id_joueurs][SEXE],
+                                                          str(self.joueur.dict_joueurs[id_joueurs][CLASSEMENT]))
         return self.joueur.utiliser_tableau_joueur()
 
     def recuperer_tournoi_tableau(self, trie):
         self.tournoi.creer_tableau_tournoi()
         for id_tournoi in self.trier_dict(self.tournoi.dict_tournoi, trie).keys():
             self.tournoi.utiliser_tableau_tournoi().add_row(str(id_tournoi),
-                                                         self.tournoi.dict_tournoi[id_tournoi][NOM],
-                                                         self.tournoi.dict_tournoi[id_tournoi][LIEU],
-                                                         self.tournoi.dict_tournoi[id_tournoi][CONTROLE_TEMPS],
-                                                         self.tournoi.dict_tournoi[id_tournoi][DATE_TOURNOI],
-                                                         str(self.tournoi.dict_tournoi[id_tournoi][DESCRIPTION]))
+                                                            self.tournoi.dict_tournoi[id_tournoi][NOM],
+                                                            self.tournoi.dict_tournoi[id_tournoi][LIEU],
+                                                            self.tournoi.dict_tournoi[id_tournoi][CONTROLE_TEMPS],
+                                                            self.tournoi.dict_tournoi[id_tournoi][DATE_TOURNOI],
+                                                            str(self.tournoi.dict_tournoi[id_tournoi][DESCRIPTION]))
         return self.tournoi.utiliser_tableau_tournoi()
-
 
     def recuperer_ronde_tableau(self):
         self.ronde.creer_tableau_ronde()
@@ -199,8 +208,6 @@ class Controleur:
             self.tournoi.joueurs_tournoi.append(id_joueur)
         return self.tournoi.joueurs_tournoi
 
-
-
     def lancer_tournoi(self):
         """"Lancement du tournoi"""
         self.vue.effacer_ecran()
@@ -212,26 +219,15 @@ class Controleur:
         # trier les joueurs par classements
         self.trier_joueurs_tournoi_classement()
         self.creer_premiere_ronde()
-        self.vue.effacer_ecran()
         self.vue.afficher_ronde_arbre(self.recuperer_ronde_arbre())
-        self.vue.pause_ecran()
-        self.vue.effacer_ecran()
         self.vue.afficher_match_arbre(self.recuperer_match_arbre())
         self.tournoi.enregistrer_ronde(self.tournoi.id_tournoi)
-        self.vue.effacer_ecran()
         self.trier_joueurs_tournoi_victoire()
         self.vue.afficher_ronde_tableau(self.recuperer_ronde_tableau())
-        self.vue.pause_ecran()
         for nouvelle_ronde in range(1, self.tournoi.rondes_max):
             self.creer_ronde()
-            self.vue.effacer_ecran()
             self.vue.afficher_ronde_arbre(self.recuperer_ronde_arbre())
-            self.vue.pause_ecran()
-            self.vue.effacer_ecran()
             self.vue.afficher_match_arbre(self.recuperer_match_arbre())
             self.tournoi.enregistrer_ronde(self.tournoi.id_tournoi)
-            self.vue.effacer_ecran()
             self.trier_joueurs_tournoi_victoire()
             self.vue.afficher_ronde_tableau(self.recuperer_ronde_tableau())
-            self.vue.pause_ecran()
-

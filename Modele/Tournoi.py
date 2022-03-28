@@ -1,8 +1,14 @@
-
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from rich.table import Table
 from rich import box
+#############################################
 
-# -----------------------------------------définition des constantes-------------------------------
+# Définition des constantes
 NOM = 'Nom'
 LIEU = 'Lieu'
 DATE_TOURNOI = 'Date du tournoi'
@@ -14,7 +20,7 @@ BOLD = "bold"
 TITRE_TABLEAU_TOURNOI = "Tournoi enregistré"
 ID = 'ID'
 
-# -----------------------------------------définition de la classe---------------------------------
+# Définition de la classe
 
 
 class Tournoi:

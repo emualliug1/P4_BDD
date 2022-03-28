@@ -1,7 +1,14 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from rich import box
 from rich.tree import Tree
 from rich.table import Table
-# -----------------------------------------définition des constantes-------------------------------
+#############################################
+# Définition des constantes
 ID = 'ID'
 NOM = 'Nom'
 CLASSEMENT = 'Classement'
@@ -10,7 +17,8 @@ SCORE_TOURNOI = "Score du tournoi"
 RONDE = 'Ronde'
 MATCH = 'Match'
 BOLD = "bold"
-# -----------------------------------------définition de la classe---------------------------------
+
+# Définition de la classe
 
 
 class Ronde:

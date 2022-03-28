@@ -1,4 +1,13 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from rich.console import Console
+#############################################
+
+# Définition de la classe
 
 
 class Menu(Console):

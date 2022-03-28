@@ -1,7 +1,14 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from rich.table import Table
 from rich import box
+#############################################
 
-# -----------------------------------------définition des constantes-------------------------------
+# Définition des constantes
 NOM = 'Nom'
 PRENOM = 'Prenom'
 DATE_NAISSANCE = 'Date de naissance'
@@ -11,7 +18,8 @@ COMPTEUR = 1
 BOLD = "bold"
 TITRE_TABLEAU_JOUEURS = "Joueurs enregistré"
 ID = 'ID'
-# -----------------------------------------définition de la classe---------------------------------
+
+# Définition de la classe
 
 
 class Joueur:
