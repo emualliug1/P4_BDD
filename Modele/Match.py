@@ -5,6 +5,7 @@
 #############################################
 # Importation de fonction externe :
 from rich.tree import Tree
+
 #############################################
 
 # Définition des constantes
@@ -25,6 +26,7 @@ class Match:
         self.joueur_resultat = 0
         self.arbre_match = Tree
         self.arbre_resultat_match = Tree
+
 
     def creer_arbre_match(self, ronde, id_match) -> [Tree]:
         self.arbre_match = ronde.add(f'{MATCH}{id_match + 1}')

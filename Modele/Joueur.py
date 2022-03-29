@@ -24,40 +24,20 @@ ID = 'ID'
 
 class Joueur:
     """Description d'une classe joueur"""
-    SEXE = ['Masculin', 'Féminin']
 
-    def __init__(self,
-                 nom=None,
-                 prenon=None,
-                 date_naissance=None,
-                 sexe=None,
-                 classement=None):
-        self.nom_famille = nom
-        self.prenom = prenon
-        self.date_naissance = date_naissance
-        self.sexe = sexe
-        self.classement = classement
-        self.dict_joueurs = {}
+    SEXE = ['Masculin', 'Feminin']
+
+    def __init__(self):
+        self.nom_famille = ''
+        self.prenom = ''
+        self.date_naissance = ''
+        self.sexe = 0
+        self.classement = 0
         self.dict_id_joueur = 0
         self.id_joueur = 0
         self.tableau_joueurs = Table
+        self.dict_joueur = {}
 
-    def enregistrer_joueur(self, numero) -> [dict]:
-        """Enregistrement d'un joueur"""
-        self.dict_id_joueur += COMPTEUR
-        self.nom_famille = self.nom_famille.upper()
-        self.prenom = self.prenom.capitalize()
-        self.sexe = Joueur.SEXE[self.sexe]
-
-        self.dict_joueurs[numero] = {
-            NOM: self.nom_famille,
-            PRENOM: self.prenom,
-            DATE_NAISSANCE: self.date_naissance,
-            SEXE: self.sexe,
-            CLASSEMENT: self.classement
-        }
-
-        return self.dict_joueurs
 
     def creer_tableau_joueur(self) -> [Table]:
         self.tableau_joueurs = Table(box=box.HORIZONTALS,
@@ -77,13 +57,14 @@ class Joueur:
     def utiliser_tableau_joueur(self):
         return self.tableau_joueurs
 
-    def ajouter_joueur_dict(self, id_joueur, nom, prenom, date_naissance, sexe, classement) -> [dict]:
-        """Créer un joueur fictif comme exemple"""
-        self.dict_joueurs[id_joueur] = {
-            NOM: nom,
-            PRENOM: prenom,
-            DATE_NAISSANCE: date_naissance,
-            SEXE: sexe,
-            CLASSEMENT: classement}
-
-        return self.dict_joueurs
+    def dictionnaire_joueur(self):
+        self.nom_famille = self.nom_famille.upper()
+        self.prenom = self.prenom.capitalize()
+        self.sexe = Joueur.SEXE[self.sexe]
+        self.dict_joueur = {
+            NOM: self.nom_famille,
+            PRENOM: self.prenom,
+            DATE_NAISSANCE: self.date_naissance,
+            SEXE: self.sexe,
+            CLASSEMENT: self.classement}
+        return self.dict_joueur

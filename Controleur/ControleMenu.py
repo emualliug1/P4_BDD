@@ -6,7 +6,6 @@
 
 # Définition des constantes
 
-# Constante trie
 NOM = 'Nom'
 CLASSEMENT = 'Classement'
 
@@ -81,6 +80,7 @@ class ControleMenu:
 
         if option == AJOUTER_TOURNOI:
             self.controle.recuperer_information_tournoi()
+            self.controle.modele.sauvegarder_db_tournoi()
         elif option == MODIFIER_TOURNOI:
             self.controle.modifier_tournoi()
         elif option == LANCER_TOURNOI:
@@ -93,6 +93,7 @@ class ControleMenu:
 
         if option == AJOUTER_JOUEUR:
             self.controle.recuperer_information_joueur()
+            self.controle.modele.sauvegarder_db_joueurs()
         elif option == MODIFIER_JOUEUR:
             self.controle.modifier_joueur()
         elif option == RETOUR_MENU_GLOBAL_2:
@@ -108,7 +109,7 @@ class ControleMenu:
         elif option == AFFICHER_JOUEURS_TOURNOI:
             self.vue.effacer_ecran()
             self.vue.afficher_menu_rapport_liste_joueurs_tournoi()
-            self.choix_menu_rapport_liste_joueurs()
+            self.choix_menu_rapport_liste_joueurs_tournoi()
         elif option == AFFICHER_TOURNOIS:
             self.vue.afficher_tournoi_tableau(self.controle.recuperer_tournoi_tableau(NOM))
         elif option == AFFICHER_TOURS_TOURNOI:
