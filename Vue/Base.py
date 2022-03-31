@@ -118,7 +118,13 @@ class Vue(Console):
     def afficher_match_tableau(self, tableau):
         """Affiche le resultat d'un match sous forme d'un tableau"""
         self.effacer_ecran()
-        self.vue.print(tableau)
+        self.print(tableau)
+        self.pause_ecran()
+
+    def afficher_joueurs_tournoi_tableau(self, tableau):
+        """Afficher les joueurs d'un tournoi"""
+        self.effacer_ecran()
+        self.print(tableau)
         self.pause_ecran()
 
 # Arbre

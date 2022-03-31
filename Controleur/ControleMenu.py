@@ -133,7 +133,7 @@ class ControleMenu:
     def choix_menu_rapport_liste_joueurs_tournoi(self):
         option = self.vue.entrer_choix_menu()
         if option == AFFICHER_JOUEURS_TOURNOI_ALPHA:
-            pass
+            self.vue.afficher_joueurs_tournoi_tableau(self.controle.recuperer_joueurs_tournoi())
         elif option == AFFICHER_JOUEURS_TOURNOI_CLASSEMENT:
             pass
         elif option == RETOUR_MENU_RAPPORTS_2:

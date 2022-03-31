@@ -33,6 +33,7 @@ class Controleur:
         self.modele = modele
 
     def recuperer_information_joueur(self):
+        """Récupère les informations d'un joueur"""
         self.vue.effacer_ecran()
         self.modele.joueur.nom_famille = self.vue.entrer_nom_joueur()
         self.modele.joueur.prenom = self.vue.entrer_prenom_joueur()
@@ -41,6 +42,7 @@ class Controleur:
         self.modele.joueur.classement = self.vue.entrer_classement_joueur()
 
     def recuperer_information_tournoi(self):
+        """Récupère les informations d'un tournoi"""
         self.vue.effacer_ecran()
         self.modele.tournoi.nom_tournoi = self.vue.entrer_nom_tournoi()
         self.modele.tournoi.lieu = self.vue.entrer_lieu_tournoi()
@@ -74,46 +76,69 @@ class Controleur:
             self.vue.afficher_modification_annule()
             self.vue.pause_ecran()
 
+    def recuperer_joueurs_tournoi(self):
+        """Récupérer les joueurs d'un tournoi"""
+        self.vue.effacer_ecran()
+        self.vue.afficher_tournoi_tableau(self.recuperer_tournoi_tableau(NOM))
+        tournoi_id = self.vue.entrer_id()
+        self.modele.tournoi.creer_tableau_joueurs_tournoi()
+        for tournoi in self.modele.db_tournoi_table:
+            if tournoi_id == tournoi.doc_id:
+                for joueur_du_tournoi in tournoi[JOUEURS_TOURNOI]:
+                    for joueur in self.modele.db_joueur_table:
+                        if joueur_du_tournoi == joueur.doc_id:
+                            self.modele.tournoi.utiliser_tableau_joueurs_tournoi().add_row(str(joueur_du_tournoi),
+                                                                                                str(joueur[NOM]),
+                                                                                                str(joueur[CLASSEMENT]))
+        return self.modele.tournoi.utiliser_tableau_joueurs_tournoi()
+
+
+
     @staticmethod
     def trier_table(table, trie, reverse=False):
+        """Permet le trie par (NOM, CLASSEMENT) d'une table de la BDD """
         table_trier = (sorted(table, key=itemgetter(trie), reverse=reverse))
         return table_trier
 
     def recuperer_joueur_tableau(self, trie, reverse=False):
+        """Récupère les informations des joueurs dans la BDD """
         self.modele.joueur.creer_tableau_joueur()
         for joueur in self.trier_table(self.modele.db_joueur_table, trie, reverse):
             self.modele.joueur.utiliser_tableau_joueur().add_row(str(joueur.doc_id),
-                                                          joueur[NOM],
-                                                          joueur[PRENOM],
-                                                          joueur[DATE_NAISSANCE],
-                                                          joueur[SEXE],
-                                                          str(joueur[CLASSEMENT]))
+                                                                 joueur[NOM],
+                                                                 joueur[PRENOM],
+                                                                 joueur[DATE_NAISSANCE],
+                                                                 joueur[SEXE],
+                                                                 str(joueur[CLASSEMENT]))
         return self.modele.joueur.utiliser_tableau_joueur()
 
     def recuperer_tournoi_tableau(self, trie):
+        """"Récupère les informations des tournois dans la BDD"""
         self.modele.tournoi.creer_tableau_tournoi()
         for tournoi in self.trier_table(self.modele.db_tournoi_table, trie):
             self.modele.tournoi.utiliser_tableau_tournoi().add_row(str(tournoi.doc_id),
-                                                            tournoi[NOM],
-                                                            tournoi[LIEU],
-                                                            tournoi[CONTROLE_TEMPS],
-                                                            tournoi[DATE_TOURNOI],
-                                                            tournoi[DESCRIPTION])
+                                                                   tournoi[NOM],
+                                                                   tournoi[LIEU],
+                                                                   tournoi[CONTROLE_TEMPS],
+                                                                   tournoi[DATE_TOURNOI],
+                                                                   tournoi[DESCRIPTION])
         return self.modele.tournoi.utiliser_tableau_tournoi()
 
     def recuperer_ronde_tableau(self):
+        """Récupère les informations d'une ronde pour un affichage en mode tableau"""
         self.modele.ronde.creer_tableau_ronde()
         for joueur in self.modele.ronde.ronde_liste:
             self.modele.ronde.utiliser_tableau_ronde().add_row(
-                                                        str(joueur[0]),
-                                                        str(joueur[1]),
-                                                        str(joueur[2]),
-                                                        str(joueur[3]),
-                                                        str(joueur[4])
-                                                       )
+                str(joueur[0]),
+                str(joueur[1]),
+                str(joueur[2]),
+                str(joueur[3]),
+                str(joueur[4])
+            )
         return self.modele.ronde.utiliser_tableau_ronde()
 
     def recuperer_ronde_arbre(self):
+        """Récupère les informations d'une ronde pour affichage en mode arbre"""
         self.modele.ronde.creer_arbre_ronde()
         for id_match in range(len(self.modele.ronde.ronde_liste)):
             self.modele.match.creer_arbre_match(self.modele.ronde.arbre_ronde, id_match)
@@ -122,6 +147,7 @@ class Controleur:
         return self.modele.ronde.utiliser_arbre_ronde()
 
     def recuperer_match_arbre(self):
+        """Récupère les informations d'un match pour un affichage en mode arbre"""
         for id_match in range(len(self.modele.ronde.ronde_liste)):
             self.vue.afficher_joueur_remporte_match()
             self.vue.afficher_match_arbre(
@@ -155,14 +181,16 @@ class Controleur:
         """Trie les joueurs d'un tournoi par classement"""
         joueur_tournoi_trier = []
         for id_joueur in self.modele.tournoi.joueurs_tournoi:
-            joueur_tournoi_trier.append([
-                id_joueur,
-                self.modele.joueur.dict_joueurs[id_joueur][NOM],
-                self.modele.joueur.dict_joueurs[id_joueur][CLASSEMENT],
-                []
-            ])
+            for joueur in self.modele.db_joueur_table:
+                if id_joueur == joueur.doc_id:
+                    joueur_tournoi_trier.append([
+                        id_joueur,
+                        joueur[NOM],
+                        joueur[CLASSEMENT],
+                        []
+                    ])
         self.modele.tournoi.joueurs_trier_classement = sorted(joueur_tournoi_trier, key=itemgetter(TRIE_CLASSEMENT),
-                                                       reverse=True)
+                                                              reverse=True)
         return self.modele.tournoi.joueurs_trier_classement
 
     def creer_premiere_ronde(self) -> [list]:
@@ -215,13 +243,13 @@ class Controleur:
         self.creer_premiere_ronde()
         self.vue.afficher_ronde_arbre(self.recuperer_ronde_arbre())
         self.vue.afficher_match_arbre(self.recuperer_match_arbre())
-        self.modele.tournoi.enregistrer_ronde(self.modele.tournoi.id_tournoi)
+        self.modele.enregistrer_db_tournoi_ronde(self.modele.tournoi.id_tournoi)
         self.trier_joueurs_tournoi_victoire()
         self.vue.afficher_ronde_tableau(self.recuperer_ronde_tableau())
         for nouvelle_ronde in range(1, self.modele.tournoi.rondes_max):
             self.creer_ronde()
             self.vue.afficher_ronde_arbre(self.recuperer_ronde_arbre())
             self.vue.afficher_match_arbre(self.recuperer_match_arbre())
-            self.modele.tournoi.enregistrer_ronde(self.modele.tournoi.id_tournoi)
+            self.modele.enregistrer_db_tournoi_ronde(self.modele.tournoi.id_tournoi)
             self.trier_joueurs_tournoi_victoire()
             self.vue.afficher_ronde_tableau(self.recuperer_ronde_tableau())

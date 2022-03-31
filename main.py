@@ -18,7 +18,7 @@ from Controleur import Controleur
 # Définition des classes du programme
 
 vue = Vue(Menu())
-modele = Modele(Tournoi(), Joueur(), Match(), Ronde())
+modele = Modele(Tournoi(), Joueur(), Ronde(), Match())
 programme = Controleur(vue, modele)
 menu = ControleMenu(vue, programme)
 
