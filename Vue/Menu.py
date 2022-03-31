@@ -48,4 +48,3 @@ class Menu(Console):
         self.print('[1] Liste de tous les joueurs du tournoi par ordre alphabétique')
         self.print('[2] Liste de tous les joueurs du tournoi par classement')
         self.print('[3] Retour')
-

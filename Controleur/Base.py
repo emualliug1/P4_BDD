@@ -5,6 +5,9 @@
 #############################################
 # Importation de fonction externe :
 from operator import itemgetter
+from rich.table import Table
+from rich.tree import Tree
+from tinydb import TinyDB
 #############################################
 
 # Définition des constantes
@@ -76,7 +79,7 @@ class Controleur:
             self.vue.afficher_modification_annule()
             self.vue.pause_ecran()
 
-    def recuperer_joueurs_tournoi(self):
+    def recuperer_joueurs_tournoi(self) -> [Table]:
         """Récupérer les joueurs d'un tournoi"""
         self.vue.effacer_ecran()
         self.vue.afficher_tournoi_tableau(self.recuperer_tournoi_tableau(NOM))
@@ -88,19 +91,17 @@ class Controleur:
                     for joueur in self.modele.db_joueur_table:
                         if joueur_du_tournoi == joueur.doc_id:
                             self.modele.tournoi.utiliser_tableau_joueurs_tournoi().add_row(str(joueur_du_tournoi),
-                                                                                                str(joueur[NOM]),
-                                                                                                str(joueur[CLASSEMENT]))
+                                                                                           str(joueur[NOM]),
+                                                                                           str(joueur[CLASSEMENT]))
         return self.modele.tournoi.utiliser_tableau_joueurs_tournoi()
 
-
-
     @staticmethod
-    def trier_table(table, trie, reverse=False):
+    def trier_table(table, trie, reverse=False) -> [TinyDB.table]:
         """Permet le trie par (NOM, CLASSEMENT) d'une table de la BDD """
         table_trier = (sorted(table, key=itemgetter(trie), reverse=reverse))
         return table_trier
 
-    def recuperer_joueur_tableau(self, trie, reverse=False):
+    def recuperer_joueur_tableau(self, trie, reverse=False) -> [Table]:
         """Récupère les informations des joueurs dans la BDD """
         self.modele.joueur.creer_tableau_joueur()
         for joueur in self.trier_table(self.modele.db_joueur_table, trie, reverse):
@@ -112,7 +113,7 @@ class Controleur:
                                                                  str(joueur[CLASSEMENT]))
         return self.modele.joueur.utiliser_tableau_joueur()
 
-    def recuperer_tournoi_tableau(self, trie):
+    def recuperer_tournoi_tableau(self, trie) -> [Table]:
         """"Récupère les informations des tournois dans la BDD"""
         self.modele.tournoi.creer_tableau_tournoi()
         for tournoi in self.trier_table(self.modele.db_tournoi_table, trie):
@@ -124,7 +125,7 @@ class Controleur:
                                                                    tournoi[DESCRIPTION])
         return self.modele.tournoi.utiliser_tableau_tournoi()
 
-    def recuperer_ronde_tableau(self):
+    def recuperer_ronde_tableau(self) -> [Table]:
         """Récupère les informations d'une ronde pour un affichage en mode tableau"""
         self.modele.ronde.creer_tableau_ronde()
         for joueur in self.modele.ronde.ronde_liste:
@@ -137,7 +138,7 @@ class Controleur:
             )
         return self.modele.ronde.utiliser_tableau_ronde()
 
-    def recuperer_ronde_arbre(self):
+    def recuperer_ronde_arbre(self) -> [Tree]:
         """Récupère les informations d'une ronde pour affichage en mode arbre"""
         self.modele.ronde.creer_arbre_ronde()
         for id_match in range(len(self.modele.ronde.ronde_liste)):
@@ -152,17 +153,13 @@ class Controleur:
             self.vue.afficher_joueur_remporte_match()
             self.vue.afficher_match_arbre(
                 self.modele.match.cree_arbre_resultat_match(self.modele.ronde.ronde_liste, id_match))
-
             joueur_resultat = self.vue.entrer_resultat_match()
-
             if joueur_resultat == 1:
                 self.modele.ronde.ronde_liste[id_match][0][3].append(self.modele.match.resultat_match[0])
                 self.modele.ronde.ronde_liste[id_match][1][3].append(self.modele.match.resultat_match[1])
-
             elif joueur_resultat == 2:
                 self.modele.ronde.ronde_liste[id_match][0][3].append(self.modele.match.resultat_match[1])
                 self.modele.ronde.ronde_liste[id_match][1][3].append(self.modele.match.resultat_match[0])
-
             else:
                 self.modele.ronde.ronde_liste[id_match][0][3].append(self.modele.match.resultat_match[2])
                 self.modele.ronde.ronde_liste[id_match][1][3].append(self.modele.match.resultat_match[2])
@@ -227,8 +224,6 @@ class Controleur:
             id_joueur = self.vue.entrer_id()
             self.modele.tournoi.joueurs_tournoi.append(id_joueur)
         return self.modele.tournoi.joueurs_tournoi
-
-
 
     def lancer_tournoi(self):
         """"Lancement du tournoi"""

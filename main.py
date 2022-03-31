@@ -17,10 +17,10 @@ from Controleur import Controleur
 
 
 def main():
-    vue = Vue(Menu())
     modele = Modele(Tournoi(), Joueur(), Ronde(), Match())
-    programme = Controleur(vue, modele)
-    menu = ControleMenu(vue, programme)
+    vue = Vue(Menu())
+    controleur = Controleur(vue, modele)
+    menu = ControleMenu(vue, controleur)
     menu.executer()
 
 

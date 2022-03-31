@@ -36,12 +36,11 @@ class Ronde:
         self.id_ronde = ''
         self.arbre_ronde = Tree
         self.arbre_ronde_match = Tree
-
         self.tableau_resultat_ronde = Table
         self.tableau_ronde = Table
         self.tableau_match = Table
 
-    def creer_tableau_ronde(self):
+    def creer_tableau_ronde(self) -> [Table]:
         self.tableau_resultat_ronde = Table(box=box.HORIZONTALS, show_header=True, header_style=BOLD,
                                             title=self.id_ronde)
         self.tableau_resultat_ronde.add_column(ID)
@@ -49,20 +48,16 @@ class Ronde:
         self.tableau_resultat_ronde.add_column(CLASSEMENT)
         self.tableau_resultat_ronde.add_column(SCORES_RONDES)
         self.tableau_resultat_ronde.add_column(SCORE_TOURNOI)
-
         return self.tableau_resultat_ronde
 
-    def utiliser_tableau_ronde(self):
+    def utiliser_tableau_ronde(self) -> [Table]:
         return self.tableau_resultat_ronde
 
-    def creer_arbre_ronde(self):
+    def creer_arbre_ronde(self) -> [Tree]:
         self.id_compteur += 1
         self.id_ronde = f'{RONDE}{self.id_compteur}'
         self.arbre_ronde = Tree(label=self.id_ronde)
         return self.arbre_ronde
 
-    def utiliser_arbre_ronde(self):
+    def utiliser_arbre_ronde(self) -> [Tree]:
         return self.arbre_ronde
-
-
-

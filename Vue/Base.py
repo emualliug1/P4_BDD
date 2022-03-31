@@ -4,11 +4,11 @@
 # Auteur: G.T,Nt,2022
 #############################################
 # Importation de fonction externe :
+import os
 from rich.console import Console
 from rich.prompt import Prompt
 from rich.prompt import IntPrompt
 from rich.panel import Panel
-import os
 #############################################
 
 # Définition des constantes
@@ -51,7 +51,7 @@ class Vue(Console):
         """Efface l'écran de la console"""
         os.system('cls')
 
-    def pause_ecran(self):
+    def pause_ecran(self) -> [None]:
         """Met l'écran en pause dans la console"""
         self.afficher_continuer()
         input()

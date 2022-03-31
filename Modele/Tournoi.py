@@ -48,7 +48,7 @@ class Tournoi:
         self.tableau_joueurs_tournoi = Table
         self.dict_tournoi = {}
 
-    def dictionnaire_tournoi(self):
+    def dictionnaire_tournoi(self) -> [dict]:
         self.nom_tournoi = self.nom_tournoi.upper()
         self.lieu = self.lieu.upper()
         self.description = self.description.capitalize()
@@ -61,6 +61,7 @@ class Tournoi:
                             DESCRIPTION: self.description,
                             JOUEURS_TOURNOI: self.joueurs_tournoi
                             }
+        return self.dict_tournoi
 
     def creer_tableau_tournoi(self) -> [Table]:
         self.tableau_tournoi = Table(box=box.HORIZONTALS,
@@ -75,13 +76,13 @@ class Tournoi:
         self.tableau_tournoi.add_column(DESCRIPTION)
         return self.tableau_tournoi
 
-    def utiliser_tableau_tournoi(self):
+    def utiliser_tableau_tournoi(self) -> [Table]:
         return self.tableau_tournoi
 
-    def utiliser_id_tournoi(self):
+    def utiliser_id_tournoi(self) -> [int]:
         return self.id_tournoi
 
-    def creer_tableau_joueurs_tournoi(self):
+    def creer_tableau_joueurs_tournoi(self) -> [Table]:
         self.tableau_joueurs_tournoi = Table(box=box.HORIZONTALS,
                                              show_header=True,
                                              header_style=BOLD,
@@ -91,5 +92,5 @@ class Tournoi:
         self.tableau_joueurs_tournoi.add_column(CLASSEMENT)
         return self.tableau_joueurs_tournoi
 
-    def utiliser_tableau_joueurs_tournoi(self):
+    def utiliser_tableau_joueurs_tournoi(self) -> [Table]:
         return self.tableau_joueurs_tournoi

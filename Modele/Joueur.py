@@ -7,7 +7,6 @@
 from rich.table import Table
 from rich import box
 #############################################
-
 # Définition des constantes
 NOM = 'Nom'
 PRENOM = 'Prenom'
@@ -18,7 +17,6 @@ COMPTEUR = 1
 BOLD = "bold"
 TITRE_TABLEAU_JOUEURS = "Joueurs enregistré"
 ID = 'ID'
-
 # Définition de la classe
 
 
@@ -38,26 +36,23 @@ class Joueur:
         self.tableau_joueurs = Table
         self.dict_joueur = {}
 
-
     def creer_tableau_joueur(self) -> [Table]:
         self.tableau_joueurs = Table(box=box.HORIZONTALS,
                                      show_header=True,
                                      header_style=BOLD,
                                      title=TITRE_TABLEAU_JOUEURS)
-
         self.tableau_joueurs.add_column(ID)
         self.tableau_joueurs.add_column(NOM)
         self.tableau_joueurs.add_column(PRENOM)
         self.tableau_joueurs.add_column(DATE_NAISSANCE)
         self.tableau_joueurs.add_column(SEXE)
         self.tableau_joueurs.add_column(CLASSEMENT)
-
         return self.tableau_joueurs
 
-    def utiliser_tableau_joueur(self):
+    def utiliser_tableau_joueur(self) -> [Table]:
         return self.tableau_joueurs
 
-    def dictionnaire_joueur(self):
+    def dictionnaire_joueur(self) -> [dict]:
         self.nom_famille = self.nom_famille.upper()
         self.prenom = self.prenom.capitalize()
         self.sexe = Joueur.SEXE[self.sexe]
