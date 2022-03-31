@@ -15,14 +15,15 @@ from Controleur import ControleMenu
 from Controleur import Controleur
 #############################################
 
-# Définition des classes du programme
 
-vue = Vue(Menu())
-modele = Modele(Tournoi(), Joueur(), Ronde(), Match())
-programme = Controleur(vue, modele)
-menu = ControleMenu(vue, programme)
+def main():
+    vue = Vue(Menu())
+    modele = Modele(Tournoi(), Joueur(), Ronde(), Match())
+    programme = Controleur(vue, modele)
+    menu = ControleMenu(vue, programme)
+    menu.executer()
 
 
 if __name__ == "__main__":
     while True:
-        menu.executer()
+        main()
