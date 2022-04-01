@@ -14,8 +14,8 @@ DATE_NAISSANCE = 'Date de naissance'
 SEXE = 'Sexe'
 CLASSEMENT = 'Classement'
 COMPTEUR = 1
-BOLD = "bold"
-TITRE_TABLEAU_JOUEURS = "Joueurs enregistré"
+BOLD = 'bold'
+TITRE_TABLEAU_JOUEURS = 'Joueurs enregistré'
 ID = 'ID'
 # Définition de la classe
 

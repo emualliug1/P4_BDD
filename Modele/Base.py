@@ -49,11 +49,13 @@ class Modele:
 
     def enregistrer_db_tournoi_ronde(self, id_tournoi):
         """Enregistre une ronde d'un tournoi dans la BDD"""
-        self.db_tournoi_table.upsert(table.Document({self.ronde.id_ronde: self.ronde.ronde_liste}, doc_id=id_tournoi))
+        self.db_tournoi_table.upsert(table.Document({self.ronde.id_ronde:
+                                                    self.ronde.ronde_liste}, doc_id=id_tournoi))
 
     def enregistrer_db_tournoi_joueurs(self, id_tournoi):
         """Enregistre la liste des joueurs du tournoi dans la BDD"""
-        self.db_tournoi_table.upsert(table.Document({JOUEURS_TOURNOI: self.tournoi.joueurs_tournoi}, doc_id=id_tournoi))
+        self.db_tournoi_table.upsert(table.Document({JOUEURS_TOURNOI:
+                                                    self.tournoi.joueurs_tournoi}, doc_id=id_tournoi))
 
     def enregistrer_db_tournoi_modifier(self, id_tournoi):
         """Enregistre la modification d'un tournoi dans la BDD"""

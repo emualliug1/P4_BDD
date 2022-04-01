@@ -12,6 +12,7 @@ GAGNER_MATCH = 1
 PERDU_MATCH = 0
 NUL_MATCH = 0.5
 MATCH = 'Match'
+COMPTEUR = 1
 
 # Définition de la classe
 
@@ -27,7 +28,7 @@ class Match:
         self.arbre_resultat_match = Tree
 
     def creer_arbre_match(self, ronde, id_match) -> [Tree]:
-        self.arbre_match = ronde.add(f'{MATCH}{id_match + 1}')
+        self.arbre_match = ronde.add(f'{MATCH}{id_match + COMPTEUR}')
         return self.arbre_match
 
     def utiliser_arbre_match(self) -> [Tree]:

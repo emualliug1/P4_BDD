@@ -61,7 +61,7 @@ class Controleur:
         validation = self.vue.entrer_validation()
         if validation:
             self.recuperer_information_joueur()
-            self.modele.joueur.enregistrer_joueur(joueur_id)
+            self.modele.enregistrer_db_joueur_modifier(joueur_id)
         if not validation:
             self.vue.afficher_modification_annule()
             self.vue.pause_ecran()
@@ -150,9 +150,9 @@ class Controleur:
     def recuperer_match_arbre(self):
         """Récupère les informations d'un match pour un affichage en mode arbre"""
         for id_match in range(len(self.modele.ronde.ronde_liste)):
-            self.vue.afficher_joueur_remporte_match()
             self.vue.afficher_match_arbre(
                 self.modele.match.cree_arbre_resultat_match(self.modele.ronde.ronde_liste, id_match))
+            self.vue.afficher_joueur_remporte_match()
             joueur_resultat = self.vue.entrer_resultat_match()
             if joueur_resultat == 1:
                 self.modele.ronde.ronde_liste[id_match][0][3].append(self.modele.match.resultat_match[0])
@@ -237,7 +237,7 @@ class Controleur:
         self.trier_joueurs_tournoi_classement()
         self.creer_premiere_ronde()
         self.vue.afficher_ronde_arbre(self.recuperer_ronde_arbre())
-        self.vue.afficher_match_arbre(self.recuperer_match_arbre())
+        self.vue.afficher_ronde_arbre(self.recuperer_match_arbre())
         self.modele.enregistrer_db_tournoi_ronde(self.modele.tournoi.id_tournoi)
         self.trier_joueurs_tournoi_victoire()
         self.vue.afficher_ronde_tableau(self.recuperer_ronde_tableau())

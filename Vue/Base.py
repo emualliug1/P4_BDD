@@ -15,24 +15,24 @@ from rich.panel import Panel
 
 CONTINUER = '\nAppuyer sur entrer pour continuer'
 MODIFICATION_ANNULE = '\nModification annulé'
-JOUEUR_REMPORTE_MATCH = "Quel joueur remporte le match: "
-JOUEUR_NOM = "Nom de famille du joueur: "
-JOUEUR_PRENOM = "Prenom du joueur: "
-JOUEUR_SEXE = "|0| = Masculin || [1] = Féminin: "
-JOUEUR_DATE_NAISSANCE = "Date de naissance JJ-MM-AAAA: "
-JOUEUR_CLASSEMENT = "Classement du joueur: "
-TOURNOI_NOM = "Nom du Tournoi:"
-TOURNOI_LIEU = "Lieu du Tournoi:"
-TOURNOI_DATE = "Date du tournoi JJ-MM-AAAA :"
-TOURNOI_CONTROLE_TEMPS = "[0] = Bullet || [1] = Blitz || [2] = Coup rapide :"
-TOURNOI_DESCRIPTION = "Description du Tournoi :"
-CHOISIR_NOMBRES_JOUEURS = "Choisir un nombre de joueurs maximum pour le tournoi: "
-CHOISIR_NOMBRES_RONDES = "Choisir le nombre de ronde maximum pour le tournoi: "
-ADMIN_CHOIX_ID = "Choisir un ID: "
-ADMIN_VALIDATION = "Voulez vous modifier les informations [blue]o[/blue] ou [red]n[/red]: "
+JOUEUR_REMPORTE_MATCH = 'Quel joueur remporte le match ?'
+JOUEUR_NOM = 'Nom de famille du joueur: '
+JOUEUR_PRENOM = 'Prenom du joueur: '
+JOUEUR_SEXE = '[0] = Masculin || [1] = Féminin: '
+JOUEUR_DATE_NAISSANCE = 'Date de naissance JJ-MM-AAAA: '
+JOUEUR_CLASSEMENT = 'Classement du joueur: '
+TOURNOI_NOM = 'Nom du Tournoi: '
+TOURNOI_LIEU = 'Lieu du Tournoi: '
+TOURNOI_DATE = 'Date du tournoi JJ-MM-AAAA: '
+TOURNOI_CONTROLE_TEMPS = '[0] = Bullet || [1] = Blitz || [2] = Coup rapide :'
+TOURNOI_DESCRIPTION = 'Description du Tournoi: '
+CHOISIR_NOMBRES_JOUEURS = 'Choisir un nombre de joueurs maximum pour le tournoi: '
+CHOISIR_NOMBRES_RONDES = 'Choisir le nombre de ronde maximum pour le tournoi: '
+ADMIN_CHOIX_ID = 'Choisir un ID: '
+ADMIN_VALIDATION = 'Voulez vous modifier les informations [blue]o[/blue] ou [red]n[/red]: '
 DATE_TOURNOI = 'Date du tournoi'
-JOUEUR_GAGNANT = "\n[1] Joueur 1 || [2] Joueur 2 || [3] Match Nul: "
-AJOUTER_JOUEURS_TOURNOI = "\nAjouter 8 ID de joueurs au tournoi: "
+JOUEUR_GAGNANT = '\n[1] Joueur 1 || [2] Joueur 2 || [3] Match Nul: '
+AJOUTER_JOUEURS_TOURNOI = '\nAjouter 8 ID de joueurs au tournoi: '
 
 # Définition de la classe
 

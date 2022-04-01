@@ -16,8 +16,8 @@ CONTROLE_TEMPS = 'Controle du temps'
 DESCRIPTION = 'Description'
 JOUEURS_TOURNOI = 'Joueurs du tournoi'
 COMPTEUR = 1
-BOLD = "bold"
-TITRE_TABLEAU_TOURNOI = "Tournoi enregistré"
+BOLD = 'bold'
+TITRE_TABLEAU_TOURNOI = 'Tournoi enregistré'
 ID = 'ID'
 PRENOM = 'Prenom'
 DATE_NAISSANCE = 'Date de naissance'
@@ -53,14 +53,12 @@ class Tournoi:
         self.lieu = self.lieu.upper()
         self.description = self.description.capitalize()
         self.controle_temps = Tournoi.CONTROLE_TEMPS[self.controle_temps]
-        self.dict_tournoi = {
-                            NOM: self.nom_tournoi,
-                            LIEU: self.lieu,
-                            DATE_TOURNOI: self.date_tournoi,
-                            CONTROLE_TEMPS: self.controle_temps,
-                            DESCRIPTION: self.description,
-                            JOUEURS_TOURNOI: self.joueurs_tournoi
-                            }
+        self.dict_tournoi = {NOM: self.nom_tournoi,
+                             LIEU: self.lieu,
+                             DATE_TOURNOI: self.date_tournoi,
+                             CONTROLE_TEMPS: self.controle_temps,
+                             DESCRIPTION: self.description,
+                             JOUEURS_TOURNOI: self.joueurs_tournoi}
         return self.dict_tournoi
 
     def creer_tableau_tournoi(self) -> [Table]:

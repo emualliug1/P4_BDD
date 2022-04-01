@@ -12,11 +12,11 @@ from rich.table import Table
 ID = 'ID'
 NOM = 'Nom'
 CLASSEMENT = 'Classement'
-SCORES_RONDES = "Scores rondes"
-SCORE_TOURNOI = "Score du tournoi"
+SCORES_RONDES = 'Scores rondes'
+SCORE_TOURNOI = 'Score du tournoi'
 RONDE = 'Ronde'
 MATCH = 'Match'
-BOLD = "bold"
+BOLD = 'bold'
 
 # Définition de la classe
 
