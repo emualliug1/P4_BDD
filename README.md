@@ -1,15 +1,15 @@
-#Projet 4
-###Développez un programme logiciel en Python
+# Projet 4
+### Développez un programme logiciel en Python
 
-##Création d'un programme qui gere un tournoi d'echec :
-###Déroulement de base du tournoi :
+## Création d'un programme qui gere un tournoi d'échec :
+### Déroulement de base du tournoi :
     1. Créer un nouveau tournoi.
     2. Ajouter huit joueurs.
     3. L'ordinateur génère des paires de joueurs pour le premier tour.
     4. Lorsque le tour est terminé, entrez les résultats.
     5. Répétez les étapes 3 et 4 pour les tours suivants jusqu'à ce que tous les tours soient joués, et que le tournoi soit terminé.
 
-###Schéma des tournois :
+### Schéma des tournois :
     -Nom
     -Lieu
     -Date
@@ -19,14 +19,14 @@
     -Contrôle du temps
     -Description
 
-###Programme des joueurs :
+### Programme des joueurs :
     -Nom de famille
     -Prénom
     -Date de naissance
     -Sexe
     -Clasement
 
-###Rondes/Matchs:
+### Rondes/Matchs:
 
 
 
