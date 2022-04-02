@@ -72,18 +72,23 @@ Lancez le programme avec :
 ![Imgur](https://i.imgur.com/D1fixml.png)
 
 Choisir un tournoi dans ceux enregistré dans la BDD
+
 ![Imgur](https://i.imgur.com/DzciBwx.png)
 
 Entrer 8 joueurs au tournoi
+
 ![Imgur](https://i.imgur.com/0Z5haAR.png)
 
 Affichage de la ronde
+
 ![Imgur](https://i.imgur.com/9RoxyoC.png)
 
 Entrer le vainqueur du match
+
 ![Imgur](https://i.imgur.com/JtDOD0I.png)
 
 Tableau récapitulatif à chaque fin de ronde
+
 ![Imgur](https://i.imgur.com/cu7n71v.png)
 
 
