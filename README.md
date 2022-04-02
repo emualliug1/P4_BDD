@@ -53,7 +53,7 @@ Lancez le programme avec :
     python main.py
 
 ### Fonctionnement :
-1) Ajouter des joueurs dans la BDD :
+1)Ajouter des joueurs dans la BDD :
 
 ![Imgur](https://i.imgur.com/AVCcB1E.png) 
 ![Imgur](https://i.imgur.com/CUlzFrU.png)
@@ -65,29 +65,29 @@ Lancez le programme avec :
 ![Imgur](https://i.imgur.com/UDwFA5f.png)
 ![Imgur](https://i.imgur.com/PTgryYg.png)
 
-3) Quand vous avez ajouté 8 joueurs vous pouvez lancer un tournoi :
+#### Quand vous avez ajoutés 8 joueurs vous pouvez lancer un tournoi :
 
 ![Imgur](https://i.imgur.com/AVCcB1E.png)
 ![Imgur](https://i.imgur.com/UDwFA5f.png)
 ![Imgur](https://i.imgur.com/D1fixml.png)
 
-Choisir un tournoi dans ceux enregistré dans la BDD
+1) Choisir un tournoi dans ceux enregistré dans la BDD
 
 ![Imgur](https://i.imgur.com/DzciBwx.png)
 
-Entrer 8 joueurs au tournoi
+2) Entrer 8 joueurs au tournoi
 
 ![Imgur](https://i.imgur.com/0Z5haAR.png)
 
-Affichage de la ronde
+3) Affichage de la ronde
 
 ![Imgur](https://i.imgur.com/9RoxyoC.png)
 
-Entrer le vainqueur du match
+4) Entrer le vainqueur du match
 
 ![Imgur](https://i.imgur.com/JtDOD0I.png)
 
-Tableau récapitulatif à chaque fin de ronde
+5) Tableau récapitulatif à chaque fin de ronde
 
 ![Imgur](https://i.imgur.com/cu7n71v.png)
 
