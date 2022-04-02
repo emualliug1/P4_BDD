@@ -179,7 +179,7 @@ class Vue(Console):
 
     def entrer_date_tournoi(self) -> [str]:
         """Entrer une date pour un tournoi"""
-        date_tournoi = self.entrer_str.ask(DATE_TOURNOI)
+        date_tournoi = self.entrer_str.ask(TOURNOI_DATE)
         return date_tournoi
 
     def entrer_controle_temps_tournoi(self) -> [int]:

@@ -1,38 +1,18 @@
 # Projet 4
-### Développez un programme logiciel en Python
+## Programme de gestion d'un tournoi d'échec
 
-## Création d'un programme qui gere un tournoi d'échec :
-### Déroulement de base du tournoi :
-    1. Créer un nouveau tournoi.
-    2. Ajouter huit joueurs.
-    3. L'ordinateur génère des paires de joueurs pour le premier tour.
-    4. Lorsque le tour est terminé, entrez les résultats.
-    5. Répétez les étapes 3 et 4 pour les tours suivants jusqu'à ce que tous les tours soient joués, et que le tournoi soit terminé.
+### Objective :
+Étape 1 : Se familiariser avec les classes et la programmation orientée objet.
 
-### Schéma des tournois :
-    -Nom
-    -Lieu
-    -Date
-    -Nombre de tours
-    -Rondes
-    -Joueurs
-    -Contrôle du temps
-    -Description
+Étape 2 : Définir et coder les modèles pour ce projet.
 
-### Programme des joueurs :
-    -Nom de famille
-    -Prénom
-    -Date de naissance
-    -Sexe
-    -Clasement
+Étape 3 : Mettre en œuvre la conception MVC.
 
-### Rondes/Matchs:
+Étape 4 : Implémenter la sérialisation.
 
-
-
-## Commencer :
+### Commencer :
 Assurez-vous que python est installé sur votre machine :
- 
+
     python -V
 
 Vérifiez que vous disposez du module venv :
@@ -71,4 +51,31 @@ Installez les packages avec pip:
 Lancez le programme avec : 
 
     python main.py
+
+### Fonctionnement :
+1) Ajouter des joueurs dans la BDD :
+
+![Imgur](https://i.imgur.com/AVCcB1E.png) 
+![Imgur](https://i.imgur.com/CUlzFrU.png)
+![Imgur](https://i.imgur.com/ayRXqEk.png)
+
+2) Ajouter un tournoi dans la BDD :
+
+![Imgur](https://i.imgur.com/AVCcB1E.png)
+![Imgur](https://i.imgur.com/UDwFA5f.png)
+![Imgur](https://i.imgur.com/PTgryYg.png)
+
+3) Quand vous avez ajouté 8 joueurs vous pouvez lancer un tournoi :
+
+![Imgur](https://i.imgur.com/AVCcB1E.png)
+![Imgur](https://i.imgur.com/UDwFA5f.png)
+![Imgur](https://i.imgur.com/D1fixml.png)
+![Imgur](https://i.imgur.com/DzciBwx.png)
+![Imgur](https://i.imgur.com/0Z5haAR.png)
+![Imgur](https://i.imgur.com/9RoxyoC.png)
+![Imgur](https://i.imgur.com/JtDOD0I.png)
+
+Tableau récapitulatif à chaque fin de ronde
+![Imgur](https://i.imgur.com/cu7n71v.png)
+
 
