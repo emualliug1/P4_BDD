@@ -28,7 +28,7 @@ Si vous ne disposez pas du module virtual env:
     py -m pip install --user virtualenv
     
 
-###Une fois Python installé :
+### Une fois Python installé :
    
  Ouvrir une invite de commande et utiliser la commande :`cd` pour aller dans le repertoire ou vous voulez copier le projet. 
     Vous pouvez aussi créer un nouveau repertoire avec la commande: `mkdir`
@@ -70,9 +70,17 @@ Lancez le programme avec :
 ![Imgur](https://i.imgur.com/AVCcB1E.png)
 ![Imgur](https://i.imgur.com/UDwFA5f.png)
 ![Imgur](https://i.imgur.com/D1fixml.png)
+
+Choisir un tournoi dans ceux enregistré dans la BDD
 ![Imgur](https://i.imgur.com/DzciBwx.png)
+
+Entrer 8 joueurs au tournoi
 ![Imgur](https://i.imgur.com/0Z5haAR.png)
+
+Affichage de la ronde
 ![Imgur](https://i.imgur.com/9RoxyoC.png)
+
+Entrer le vainqueur du match
 ![Imgur](https://i.imgur.com/JtDOD0I.png)
 
 Tableau récapitulatif à chaque fin de ronde
