@@ -136,7 +136,6 @@ class Vue(Console):
     def afficher_ronde_match_tournoi_tableau(self, tableau):
         """Affiche les rondes et les matchs d'un tournoi"""
         self.print(tableau)
-        self.pause_ecran()
 # Arbre
 
     def afficher_ronde_arbre(self, arbre):

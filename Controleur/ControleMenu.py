@@ -5,7 +5,6 @@
 #############################################
 
 # Définition des constantes
-
 NOM = 'Nom'
 CLASSEMENT = 'Classement'
 
@@ -113,8 +112,7 @@ class ControleMenu:
             self.vue.afficher_tournoi_tableau(
                 self.controle.recuperer_tournoi_tableau(NOM))
         elif option == AFFICHER_RONDE_MATCH_TOURNOI:
-            self.vue.afficher_ronde_match_tournoi_tableau(
-                self.controle.recuperer_ronde_match_tournoi())
+            self.controle.recuperer_ronde_match_tournoi()
         elif option == RETOUR_MENU_GLOBAL_3:
             self.choix_menu_global()
 

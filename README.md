@@ -52,6 +52,10 @@ Lancez le programme avec :
 
     python main.py
 
+creer un rapport flake8 :
+
+    flake8 --format=html --htmldir=flake-report
+
 ### Fonctionnement :
 1)Ajouter des joueurs dans la BDD :
 

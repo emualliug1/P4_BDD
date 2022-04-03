@@ -49,7 +49,7 @@ DEBUT = 0
 DEBUT_RONDE = 1
 AJOUTER_RONDE = 1
 COMPTEUR = 1
-AUCUN_GAGNANT = 'Match Nul'
+AUCUN_GAGNANT = 'MATCH NUL'
 MATCH = 'Match'
 
 # Définition de la classe
@@ -138,24 +138,25 @@ class Controleur:
                     score_match = match[JOUEUR_A][RONDE_SCORES_MATCH_JOUEUR][score]
                     if score_match == MATCH_PERDU:
                         self.modele.match.utiliser_tableau_ronde_match_tournoi().add_row(
-                            str(f'{MATCH}{id_match}'),
+                            str(f'{id_match}'),
                             match[JOUEUR_A][RONDE_NOM_JOUEUR],
                             match[JOUEUR_B][RONDE_NOM_JOUEUR],
                             match[JOUEUR_B][RONDE_NOM_JOUEUR])
                     elif score_match == MATCH_GAGNER:
                         self.modele.match.utiliser_tableau_ronde_match_tournoi().add_row(
-                            str(f'{MATCH}{id_match}'),
+                            str(f'{id_match}'),
                             match[JOUEUR_A][RONDE_NOM_JOUEUR],
                             match[JOUEUR_B][RONDE_NOM_JOUEUR],
                             match[JOUEUR_A][RONDE_NOM_JOUEUR])
                     elif score_match == MATCH_NUL_:
                         self.modele.match.utiliser_tableau_ronde_match_tournoi().add_row(
-                            str(f'{MATCH}{id_match}'),
+                            str(f'{id_match}'),
                             match[JOUEUR_A][RONDE_NOM_JOUEUR],
                             match[JOUEUR_B][RONDE_NOM_JOUEUR],
                             AUCUN_GAGNANT)
-
-        return self.modele.match.utiliser_tableau_ronde_match_tournoi()
+            self.vue.afficher_ronde_match_tournoi_tableau(
+                self.modele.match.utiliser_tableau_ronde_match_tournoi())
+        self.vue.pause_ecran()
 
     @staticmethod
     def trier_table(table, trie, reverse=False) -> [TinyDB.table]:
