@@ -19,6 +19,8 @@ PRENOM = 'Prenom'
 DATE_NAISSANCE = 'Date de naissance'
 SEXE = 'Sexe'
 CLASSEMENT = 'Classement'
+JOUEUR_MAX = 'Joueur maximum'
+RONDE_MAX = 'Ronde maximum'
 JOUEURS = 'Joueurs'
 TOURNOI = 'Tournoi'
 NOM_BDD = 'bdd_tournoi.json'
@@ -56,6 +58,16 @@ class Modele:
         """Enregistre la liste des joueurs du tournoi dans la BDD"""
         self.db_tournoi_table.upsert(table.Document({JOUEURS_TOURNOI:
                                                     self.tournoi.joueurs_tournoi}, doc_id=id_tournoi))
+
+    def enregistrer_db_tournoi_joueur_max(self, id_tournoi):
+        """Enregistre le nombre de joueurs maximum au tournoi dans la BDD"""
+        self.db_tournoi_table.upsert(table.Document({JOUEUR_MAX:
+                                                    self.tournoi.joueurs_max}, doc_id=id_tournoi))
+
+    def enregistrer_db_tournoi_ronde_max(self, id_tournoi):
+        """Enregistre le nombre de joueurs maximum au tournoi dans la BDD"""
+        self.db_tournoi_table.upsert(table.Document({RONDE_MAX:
+                                                    self.tournoi.rondes_max}, doc_id=id_tournoi))
 
     def enregistrer_db_tournoi_modifier(self, id_tournoi):
         """Enregistre la modification d'un tournoi dans la BDD"""

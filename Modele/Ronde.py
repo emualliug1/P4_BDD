@@ -61,3 +61,6 @@ class Ronde:
 
     def utiliser_arbre_ronde(self) -> [Tree]:
         return self.arbre_ronde
+
+    def recuperer_vainqueur_tournoi(self):
+        return self.ronde_liste[0][1]

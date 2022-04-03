@@ -23,6 +23,9 @@ PRENOM = 'Prenom'
 DATE_NAISSANCE = 'Date de naissance'
 SEXE = 'Sexe'
 CLASSEMENT = 'Classement'
+JOUEUR_MAX = 'Joueur maximum'
+RONDE_MAX = 'Ronde maximum'
+
 
 # Définition de la classe
 
@@ -58,7 +61,9 @@ class Tournoi:
                              DATE_TOURNOI: self.date_tournoi,
                              CONTROLE_TEMPS: self.controle_temps,
                              DESCRIPTION: self.description,
-                             JOUEURS_TOURNOI: self.joueurs_tournoi}
+                             JOUEURS_TOURNOI: self.joueurs_tournoi,
+                             JOUEUR_MAX: self.joueurs_max,
+                             RONDE_MAX: self.rondes_max}
         return self.dict_tournoi
 
     def creer_tableau_tournoi(self) -> [Table]:

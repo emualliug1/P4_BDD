@@ -35,9 +35,8 @@ class Menu(Console):
         self.print('[1] Liste de tous les joueurs')
         self.print("[2] Liste de tous les joueurs d'un tournoi")
         self.print('[3] Liste de tous les tournois')
-        self.print("[4] Liste de tous les tours d'un tournoi")
-        self.print("[5] Liste de tous les match d'un tournois")
-        self.print('[6] Retour')
+        self.print("[4] Liste des rondes et des match d'un tournoi")
+        self.print("[5] Retour")
 
     def menu_rapport_liste_joueurs(self):
         self.print('[1] Liste de tous les joueurs par ordre alphabétique')

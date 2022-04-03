@@ -1,7 +1,7 @@
 # Projet 4
 ## Programme de gestion d'un tournoi d'échec
 
-### Objective :
+### Objectif :
 Étape 1 : Se familiariser avec les classes et la programmation orientée objet.
 
 Étape 2 : Définir et coder les modèles pour ce projet.

@@ -33,6 +33,7 @@ ADMIN_VALIDATION = 'Voulez vous modifier les informations [blue]o[/blue] ou [red
 DATE_TOURNOI = 'Date du tournoi'
 JOUEUR_GAGNANT = '\n[1] Joueur 1 || [2] Joueur 2 || [3] Match Nul: '
 AJOUTER_JOUEURS_TOURNOI = '\nAjouter 8 ID de joueurs au tournoi: '
+VAINQUEUR = 'Le gagnant du tournoi est: '
 
 # Définition de la classe
 
@@ -95,6 +96,11 @@ class Vue(Console):
     def afficher_ajouter_joueurs_tournoi(self):
         self.print(Panel.fit(AJOUTER_JOUEURS_TOURNOI))
 
+    def afficher_vainqueur_tournoi(self, joueur_gagnant):
+        self.effacer_ecran()
+        self.print(Panel.fit(f'{VAINQUEUR}{joueur_gagnant}'))
+        self.pause_ecran()
+
 # Tableau
 
     def afficher_joueur_tableau(self, tableau):
@@ -127,6 +133,10 @@ class Vue(Console):
         self.print(tableau)
         self.pause_ecran()
 
+    def afficher_ronde_match_tournoi_tableau(self, tableau):
+        """Affiche les rondes et les matchs d'un tournoi"""
+        self.print(tableau)
+        self.pause_ecran()
 # Arbre
 
     def afficher_ronde_arbre(self, arbre):
