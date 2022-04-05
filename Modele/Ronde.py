@@ -24,14 +24,9 @@ BOLD = 'bold'
 class Ronde:
 
     def __init__(self):
-        self.nom_du_tour = ''
-        self.date_du_tour = ''
-        self.heure_du_tour = ''
-        self.liste_match = []
         self.joueurs_a = []
         self.joueurs_b = []
         self.ronde_liste = []
-        self.dict_ronde = {}
         self.id_compteur = 0
         self.id_ronde = ''
         self.arbre_ronde = Tree

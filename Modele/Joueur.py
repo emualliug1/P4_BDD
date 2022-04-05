@@ -31,10 +31,8 @@ class Joueur:
         self.date_naissance = ''
         self.sexe = 0
         self.classement = 0
-        self.dict_id_joueur = 0
-        self.id_joueur = 0
-        self.tableau_joueurs = Table
         self.dict_joueur = {}
+        self.tableau_joueurs = Table
 
     def creer_tableau_joueur(self) -> [Table]:
         self.tableau_joueurs = Table(box=box.HORIZONTALS,

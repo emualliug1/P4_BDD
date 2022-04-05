@@ -47,9 +47,9 @@ class Tournoi:
         self.joueurs_tournoi = []
         self.id_tournoi = 0
         self.joueurs_trier_classement = []
+        self.dict_tournoi = {}
         self.tableau_tournoi = Table
         self.tableau_joueurs_tournoi = Table
-        self.dict_tournoi = {}
 
     def dictionnaire_tournoi(self) -> [dict]:
         self.nom_tournoi = self.nom_tournoi.upper()

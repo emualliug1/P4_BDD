@@ -29,10 +29,7 @@ VAINQUEUR = 'Vainqueur'
 class Match:
 
     def __init__(self):
-        self.score_match = []
-        self.id_match = 0
         self.resultat_match = [PERDU_MATCH, GAGNER_MATCH, NUL_MATCH]
-        self.joueur_resultat = 0
         self.arbre_match = Tree
         self.arbre_resultat_match = Tree
         self.tableau_ronde_match_tournoi = Table
